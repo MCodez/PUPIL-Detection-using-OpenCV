@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Aug  3 12:46:13 2019
-
+IDE : Anaconda (Spyder)
 @author: LALIT ARORA
 """
 
@@ -63,7 +63,3 @@ for file in os.listdir("."):
 for image in images:
     id = iris_detection(image)
     id.start_detection()
-
-#id = iris_detection(r'C:\Users\LALIT ARORA\Desktop\\eye2.jpg')
-#id = iris_detection(r'C:\Users\LALIT ARORA\Desktop\Eye Images\eye2.jpg')
-#id.start_detection()
