@@ -10,7 +10,7 @@ import os
 import numpy as np
 
 
-class iris_detection():
+class pupil_detection():
     def __init__(self, image_path):
         self._img = None
         self._img_path = image_path
@@ -29,7 +29,7 @@ class iris_detection():
         print(name)
         cv2.imwrite(name,self._img)
         
-    def detect_iris (self):
+    def detect_pupil (self):
         inv = cv2.bitwise_not(self._img)
         thresh = cv2.cvtColor(inv, cv2.COLOR_BGR2GRAY)
         kernel = np.ones((2,2),np.uint8)
@@ -45,7 +45,7 @@ class iris_detection():
 
     def start_detection(self):
         if(self.load_image()):
-            self.detect_iris()
+            self.detect_pupil()
             #cv2.imshow("IRIS DETECTION", self._img)
             #cv2.waitKey(0)
             self.save_image()
@@ -61,5 +61,5 @@ for file in os.listdir("."):
         images.append(os.path.join(path, file))
         
 for image in images:
-    id = iris_detection(image)
+    id = pupil_detection(image)
     id.start_detection()
