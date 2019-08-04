@@ -16,8 +16,18 @@ Detecting PUPIL or EyeBall using OpenCV.
   7. Find that object's center point and height.
   8. Highlight that circle.
 
+### detect_pupil_v2.py
+Color Image Denoising and Gaussian Blur techniques are used for pre-processing the eye image before applying inversion filter over it. 
+For segmentation, the contour with center nearest to center of image is filtered. **Eyeball will be near to center of eye image**
+Rest algorithm for pupil detection is same as in detect_pupil.py
+
+
 ### Useful Links 
 
 **Morphological Erosion** : https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.html
 
 **OpenCV contours and Hierarchy** : https://github.com/eyantrainternship/eYSIP_2015_Marker_based_Robot_Localisation/wiki/Contours-and-Hierarchy
+
+**Denoising Images** : https://docs.opencv.org/3.2.0/d5/d69/tutorial_py_non_local_means.html
+
+**Smoothing Images** : https://docs.opencv.org/3.1.0/d4/d13/tutorial_py_filtering.html
