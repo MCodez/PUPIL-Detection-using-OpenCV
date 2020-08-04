@@ -8,6 +8,10 @@ IDE : Anaconda (Spyder)
 import cv2
 import os
 import numpy as np
+from pprint import pprint
+
+# directory that holds eyes images to find and detect the purpil
+eyes_dir = "Eye Images"
 
 
 class pupil_detection():
@@ -46,8 +50,8 @@ class pupil_detection():
     def start_detection(self):
         if(self.load_image()):
             self.detect_pupil()
-            #cv2.imshow("IRIS DETECTION", self._img)
-            #cv2.waitKey(0)
+            cv2.imshow("IRIS DETECTION", self._img)
+            cv2.waitKey(0)
             self.save_image()
         else:
             print('Image file "' + self._img_path + '" could not be loaded.')
@@ -55,11 +59,12 @@ class pupil_detection():
 
 images = []
 
-for file in os.listdir("."):
+for file in os.listdir(eyes_dir):
     if file.endswith(".jpg"):
         path = os.getcwd()
-        images.append(os.path.join(path, file))
-        
+        images.append(os.path.join(path, eyes_dir, file))
+       
+	   
 for image in images:
     id = pupil_detection(image)
     id.start_detection()
